@@ -1,6 +1,6 @@
 
 
-from .execution_time import timeit
+from execution_time import timeit
 
 
 @timeit
