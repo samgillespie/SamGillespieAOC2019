@@ -1,1 +1,1 @@
-from .execution_time import execution_time
+import code.execution_time as execution_time

@@ -1,11 +1,9 @@
 
 from execution_time import timeit
 
-from collections import deque
-
 
 def convert_instructions_to_points(instructions):
-    traversed_positions = deque()
+    traversed_positions = list()
     current_position = (0,0)
     # Don't include (0,0) in traversed positions, otherwise it will be the closest
     # Intersection in both lists
