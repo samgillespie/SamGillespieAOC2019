@@ -122,6 +122,24 @@ def question_5a():
         if cursor == prior_cursor:
             cursor += size
 
+
+def process_sequence(sequence):
+    cursor = 0
+    while True:
+        size = get_size(sequence[cursor])
+        if (cursor + size) > len(sequence):
+            break
+
+        prior_cursor = cursor
+        try:
+            [sequence, cursor] = process_instruction(sequence, sequence[cursor:(cursor+size)], cursor, global_input)            
+        except TerminateSequence:
+            return
+
+        if cursor == prior_cursor:
+            cursor += size
+
+
 @timeit
 def question_5b():
     global_input = 5
@@ -129,20 +147,7 @@ def question_5b():
         input_data = f.read()
     input_data = list(map(int, input_data.split(",")))
     test_data = input_data.copy()
-    cursor = 0
-    while True:
-        size = get_size(test_data[cursor])
-        if (cursor + size) > len(test_data):
-            break
-
-        prior_cursor = cursor
-        try:
-            [test_data, cursor] = process_instruction(test_data, test_data[cursor:(cursor+size)], cursor, global_input)            
-        except TerminateSequence:
-            return
-
-        if cursor == prior_cursor:
-            cursor += size
+    process_sequence(test_data)
 
 
 if __name__ == "__main__":

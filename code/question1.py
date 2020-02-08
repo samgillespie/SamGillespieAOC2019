@@ -28,4 +28,5 @@ def question_1():
     print(f"Question 2 Answer: {calculate_fuel_with_recursion(input_data)}")
 
 
-question_1()
+if __name__ == "__main__":
+    question_1()

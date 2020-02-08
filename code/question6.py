@@ -66,11 +66,7 @@ def question_6():
     orbits = convert_data_to_nested_classes(input_data)
     
     # Walk map
-    
-
     print(f"Question 6a: {count_orbits(orbits)}")
-
-    
     print(f'Question 6b: {calculate_shortest_route(orbits, "YOU", "SAN")}')
     
 
